@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Funcionário</title>
+    
+    <style>
+        /* CSS simples para destacar a mensagem de erro */
+        .erro {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+   <h1>Login</h1>
+
+    <form id="formulario-login"> 
+        E-mail: <input type="email" id="email" required> <br><br>
+    
+    Senha:<input type="password" id="senha" required> <br><br>
+        <input type="submit" value="Entrar">
+    </form>
+    
+    <p id="mensagem-erro" class="erro" style="display: none;"></p>
+
+    <nav>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/menu/menu.html">Menu</a></li>
+        </ul>
+    </nav>
+
+    <script src="login.js"></script>
+</body>
+</html>
