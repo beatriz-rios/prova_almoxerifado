@@ -9,7 +9,7 @@ const USUARIOS_PERMITIDOS = [
 const FORMULARIO = document.getElementById('formulario-login');
 const MENSAGEM_ERRO = document.getElementById('mensagem-erro');
 const URL_LOGIN = 'index.html'; // Tela atual de login
-const URL_SUCESSO = 'http://127.0.0.1:5500/login/cadastro_materiais/cadastro.html'; // Redirecionar para a página do menu
+const URL_SUCESSO = 'http://127.0.0.1:5500/cadastro_materiais/cadastro.html'; // Redirecionar para a página do menu
 const TEMPO_REDIRECIONAMENTO_MS = 4000; // 4 segundos
 
 // --- Função que executa a regra de negócio de ERRO ---
