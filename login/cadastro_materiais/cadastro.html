@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de materiais</title>
+    <title>Cadastro</title>
 </head>
 <body>
-    <h1>materiais</h1>
+   
+    <!--NAV BAR-->
+    <ul>
+    <li class menu><a href="">Menu</a></li>
+    <li class menu><a href="">Login</a></li>
+    <li class menu><a href="">Cadastro</a></li>
+    <li class menu><a href="">Estoque</a></li>
+    </ul>
+    
+
+    <!--DIV DO QUADRADO GRANDE-->
+    <div class="cadastro">
+     <!--INPUTS PARA ADICIONAR-->   
+     SKU:<input type="text" name="sku"><br>
+     Categoria:<input type="text" name="cate"><br>
+     Cor:<input type="text" name="cor"><br>
+     Unidade de Medida:<input type="text" name="uni"><br>
+     Quantidade disponível:<input type="text" name="quant"><br>
+     Data de validade:<input type="date" name="vali"><br>
+     Entrada ou Saída do produto:<input type="text" name="tipo"><br>
+     <input type="submit" value="Enviar" id="env">
+    </div> 
+
+    
 </body>
 </html>
