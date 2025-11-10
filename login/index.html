@@ -5,35 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Funcionário</title>
-    <link rel="stylesheet" href="/login/css/login.css">
-    <style>
-        /* CSS simples para destacar a mensagem de erro */
-        .erro {
-            color: red;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+      <link rel="stylesheet" href="./css/login.css">
+    
 </head>
 
 <body>
-   <h1>Login</h1>
-
-    <form id="formulario-login"> 
-        E-mail: <input type="email" id="email" required> <br><br>
+    <!--NAVBAR-->
+     <ul>
+    <li class="menu"><a href="">Menu</a></li>
+    <li class="login"><a href="">Login</a></li>
+    <li class="cadastroo"><a href="">Cadastro</a></li>
+    <li class="estoque"><a href="">Estoque</a></li>
+     <li class="login"><img src="/icon.png"></li>
+    </ul>
     
-    Senha:<input type="password" id="senha" required> <br><br>
-        <input type="submit" value="Entrar">
-    </form>
-    
-    <p id="mensagem-erro" class="erro" style="display: none;"></p>
+       <!--CARD GRANDE-->
+       <div class="cards">
+       <!--CARD CONTAINER-->
+        <div class="form-container">
+            <!--DIV PARA O CARD COM INPUT-->
+            <div class="loginn">
+            <label for="nome-input">Nome:</label>
+            <input type="text" name="name" id="nome-input">
 
-    <nav>
-        <ul>
-            <li><a href="http://127.0.0.1:5500/menu/menu.html">Menu</a></li>
-        </ul>
-    </nav>
+            <label for="email-input">E-mail:</label>
+            <input type="email" name="email" id="email-input">
 
-    <script src="login.js"></script>
+            <label for="senha-input">Senha:</label>
+            <input type="password" name="senha" id="senha-input" required>
+            </div>  
+        </div>
+       </div>
+
+    <script src="login.js">
+        
+    </script>
 </body>
 </html>
