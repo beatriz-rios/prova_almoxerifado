@@ -16,7 +16,7 @@ const TEMPO_REDIRECIONAMENTO_MS = 4000; // 4 segundos
 function lidarComFalha(motivoDaFalha) {
     
     // 1. Informar ao usuário o motivo da falha
-    MENSAGEM_ERRO.textContent = `🚫 FALHA DE AUTENTICAÇÃO: ${motivoDaFalha} Redirecionando para a tela de login em ${TEMPO_REDIRECIONAMENTO_MS / 1000} segundos...`;
+    MENSAGEM_ERRO.textContent =` 🚫 FALHA DE AUTENTICAÇÃO: ${motivoDaFalha} Redirecionando para a tela de login em ${TEMPO_REDIRECIONAMENTO_MS / 1000} segundos...`;
     MENSAGEM_ERRO.style.display = 'block'; // Torna a mensagem visível
 
     // 2. Redirecionar novamente à tela de login após um pequeno atraso
@@ -48,7 +48,7 @@ FORMULARIO.addEventListener('submit', function(evento) {
 
     if (usuarioEncontrado) {
         // 1. Caso de Sucesso:
-        alert(`Bem-vindo(a), ${usuarioEncontrado.nome}! Redirecionando...`);
+        alert(`Bem-vindo(a), ${usuarioEncontrado.nome} ,"! Redirecionando...`);
         // Redireciona para a URL de sucesso (menu.html, ajustado para o seu nav)
         window.location.href = URL_SUCESSO; 
         
@@ -58,6 +58,8 @@ FORMULARIO.addEventListener('submit', function(evento) {
         lidarComFalha(motivo);
     }
 });
+
+
 
 
 //ESTILIZACAO DO PERFIL DO USUARIO
