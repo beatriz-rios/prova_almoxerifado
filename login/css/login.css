@@ -82,10 +82,30 @@ ul li a {
     background-color: white; /* Cor de fundo branca dos inputs */
 }
 
+/* Estilização para o novo botão de login */
+#btn-login {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-login:hover {
+    background-color: #A52A2A; /* Um pouco mais escuro ao passar o mouse */
+}
+
+
 /* DIV QUADRADO GRANDE (CONTAINER PRINCIPAL) */
 .cards {
     display: flex; 
-    justify-content: center;
+    justify-content:center;
     align-items: center; 
     width: 100%; 
     min-height: 80vh; 
@@ -101,7 +121,7 @@ ul li a {
     padding: 2%; 
 
     /*Imagem tamanho, posicao*/
-    background-image: url('/login/imagem/cidade.png'); 
+    background-image: url('../../imagens/cidade.png'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -154,4 +174,31 @@ ul li a {
     margin-top: 10px;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+
+/*Estilizando as informações do USUARIO*/
+/* Seu código existente (se houver) */
+.loga{
+    background-color: black;
+}
+
+/* Estilização para o painel de informações */
+.info-painel {
+    /* Posição fixa no canto superior direito */
+    position: fixed;
+    top: 60px; /* Ajuste para não ficar atrás da navbar */
+    right: 10px;
+    
+    /* Estilo do painel */
+    width: 250px; /* Tamanho pequeno */
+    padding: 15px;
+    background-color: #333; /* Cor de fundo escura */
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    
+    /* Ocultar por padrão */
+    display: none; 
 }

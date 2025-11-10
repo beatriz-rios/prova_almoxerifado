@@ -58,3 +58,37 @@ FORMULARIO.addEventListener('submit', function(evento) {
         lidarComFalha(motivo);
     }
 });
+
+
+//ESTILIZACAO DO PERFIL DO USUARIO
+document.addEventListener('DOMContentLoaded', (event) => {
+    // 1. Elementos do DOM
+    const iconeUsuario = document.getElementById('icone-usuario');
+    const infoPainel = document.getElementById('info-usuario');
+    const nomeInput = document.getElementById('nome-input');
+    const emailInput = document.getElementById('email-input');
+    
+    const displayNome = document.getElementById('display-nome');
+    const displayEmail = document.getElementById('display-email');
+
+    // 2. Função para carregar e exibir os dados
+    function atualizarEExibirInfo() {
+        // Pega os valores atuais dos campos de input
+        const nome = nomeInput.value || "Não informado";
+        const email = emailInput.value || "Não informado";
+        
+        // Preenche a div de informações
+        displayNome.textContent = nome;
+        displayEmail.textContent = email;
+
+        // 3. Alterna a visibilidade do painel (como um "toggle")
+        if (infoPainel.style.display === 'block') {
+            infoPainel.style.display = 'none'; // Esconde
+        } else {
+            infoPainel.style.display = 'block'; // Mostra
+        }
+    }
+
+    // 4. Adiciona o evento de clique ao ícone
+    iconeUsuario.addEventListener('click', atualizarEExibirInfo);
+});

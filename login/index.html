@@ -16,13 +16,15 @@
     <li class="login"><a href="">Login</a></li>
     <li class="cadastroo"><a href="">Cadastro</a></li>
     <li class="estoque"><a href="">Estoque</a></li>
-     <li class="login"><img src="/icon.png"></li>
+     <li class="login"><img src="../imagens/people.png" id="icone-usuario"></li>
     </ul>
     
        <!--CARD GRANDE-->
        <div class="cards">
        <!--CARD CONTAINER-->
         <div class="form-container">
+            <!--FORMULARIO LOGIN-->
+            <form id="formulario-login">
             <!--DIV PARA O CARD COM INPUT-->
             <div class="loginn">
             <label for="nome-input">Nome:</label>
@@ -33,11 +35,20 @@
 
             <label for="senha-input">Senha:</label>
             <input type="password" name="senha" id="senha-input" required>
+
+             <button type="submit" id="btn-login">ENTRAR</button>
             </div>  
-        </div>
+        </form></div>
        </div>
 
-    <script src="login.js">
+       <!--INFORMAÇÕES DO USUARIO-->
+       <div id="info-usuario" class="info-painel"> 
+        <p>Nome: <span id="display-nome"></span></p>
+        <p>E-mail: <span id="display-email"></span></p>
+        </div>
+        
+        
+    <script src="./login.js">
         
     </script>
 </body>
