@@ -1,26 +1,23 @@
 // AQUI ESTÁ A LISTA FIXA DE USUÁRIOS
 const USUARIOS_PERMITIDOS = [
-    { email: 'admin@empresa.com', senha: '123456', nome: 'Administrador' },
-    { email: 'joao@empresa.com', senha: 'senha123', nome: 'João' },
-    { email: 'maria@empresa.com', senha: 'mudar123', nome: 'Maria' }
+    { email: 'vitor@empresa.com', senha: '123456', nome: 'Vitor' },
+    { email: 'bia@empresa.com', senha: '123456', nome: 'Bia' },
+    { email: 'gideao@empresa.com', senha: '123456', nome: 'Gideao' }
 ];
 
 // --- Configurações e Variáveis ---
 const FORMULARIO = document.getElementById('formulario-login');
 const MENSAGEM_ERRO = document.getElementById('mensagem-erro');
-const URL_LOGIN = 'index.html'; 
-const URL_SUCESSO = 'http://127.0.0.1:5500/cadastro_materiais/cadastro.html'; 
+const URL_LOGIN = 'index.html'; // Tela atual de login
+
 const TEMPO_REDIRECIONAMENTO_MS = 4000; // 4 segundos
 
 // --- Função que executa a regra de negócio de ERRO ---
 function lidarComFalha(motivoDaFalha) {
     
     // 1. Informar ao usuário o motivo da falha
-    if (MENSAGEM_ERRO) {
-        MENSAGEM_ERRO.style.backgroundColor = 'red'; // Cor de fundo para Erro
-        MENSAGEM_ERRO.textContent =` 🚫 FALHA DE AUTENTICAÇÃO: ${motivoDaFalha} Redirecionando para a tela de login em ${TEMPO_REDIRECIONAMENTO_MS / 1000} segundos...`;
-        MENSAGEM_ERRO.style.display = 'block'; // Torna a mensagem visível
-    }
+    MENSAGEM_ERRO.textContent = alert(`🚫 FALHA DE AUTENTICAÇÃO: ${motivoDaFalha} Redirecionando para a tela de login em ${TEMPO_REDIRECIONAMENTO_MS / 1000} segundos...`);
+    if(MENSAGEM_ERRO) MENSAGEM_ERRO.style.display = 'block'; // Torna a mensagem visível
 
     // 2. Redirecionar novamente à tela de login após um pequeno atraso
     setTimeout(() => {
@@ -29,16 +26,18 @@ function lidarComFalha(motivoDaFalha) {
 }
 
 // --- Função Principal: Tratamento do Envio do Formulário ---
+// Apenas executa se o formulário existir na página atual (provavelmente login.html)
 if (FORMULARIO) {
     FORMULARIO.addEventListener('submit', function(evento) {
         evento.preventDefault(); 
         
-        // 🛑 CORREÇÃO 1: Usando os IDs corretos do HTML ('email-input' e 'senha-input')
+        // Assegurando que os elementos existem antes de tentar pegar o valor
+        // Nota: Os IDs nos inputs de login.html são: nome-input, email-input, senha-input
         const emailInput = document.getElementById('email-input');
         const senhaInput = document.getElementById('senha-input');
 
         if (!emailInput || !senhaInput) {
-            console.error("Campos de email/senha não encontrados no DOM. Verifique os IDs 'email-input' e 'senha-input'.");
+            console.error("Campos de email/senha não encontrados no DOM.");
             return;
         }
         
@@ -49,59 +48,81 @@ if (FORMULARIO) {
         const usuarioEncontrado = USUARIOS_PERMITIDOS.find(usuario => 
             usuario.email === emailDigitado && usuario.senha === senhaDigitada
         );
- if (usuarioEncontrado) {
+
+        if (usuarioEncontrado) {
             // 1. Caso de Sucesso:
             localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado)); // NOVO: SALVA O USUÁRIO LOGADO
-            alert(`Bem-vindo(a), ${usuarioEncontrado.nome}!`+` Redirecionando...`);
+            alert(`Bem-vindo(a), ${usuarioEncontrado.nome}! Redirecionando...`);
             // Redireciona para a URL de sucesso (cadastro.html)
-            window.location.href = URL_SUCESSO; 
+         
             
         } else {
             // 2. Caso de Falha:
             const motivo = "Credenciais inválidas. Verifique seu e-mail e senha."; 
             lidarComFalha(motivo);
         }
+
+        // --- NOVO CÓDIGO: RESETA OS CAMPOS APÓS TENTATIVA ---
+        emailInput.value = '';
+        senhaInput.value = '';
+        // O campo 'nome-input' também é limpo por cortesia, caso o usuário o tenha preenchido
+        const nomeInput = document.getElementById('nome-input');
+        if (nomeInput) {
+            nomeInput.value = '';
+        }
+        // ---------------------------------------------------
     });
 }
 
 
-// ----------------------------------------------------------------------
-// ESTILIZACAO DO PERFIL DO USUARIO (Lógica para o painel info-usuario)
-// ----------------------------------------------------------------------
+
+
+//ESTILIZACAO DO PERFIL DO USUARIO (Revisado para buscar do localStorage)
 document.addEventListener('DOMContentLoaded', (event) => {
     // 1. Elementos do DOM
     const iconeUsuario = document.getElementById('icone-usuario');
     const infoPainel = document.getElementById('info-usuario');
-    // Estes IDs são lidos para preencher o painel, não para o login em si:
-    const nomeInput = document.getElementById('nome-input');
-    const emailInput = document.getElementById('email-input');
-    
     const displayNome = document.getElementById('display-nome');
     const displayEmail = document.getElementById('display-email');
 
-    // 2. Função para carregar e exibir os dados
+    // Verifica se os elementos cruciais existem
+    if (!iconeUsuario || !infoPainel || !displayNome || !displayEmail) {
+        return;
+    }
+
+    // 2. Função para carregar os dados e alternar a exibição
     function atualizarEExibirInfo() {
-        // Pega os valores atuais dos campos de input
-        // Uso de Nullish Coalescing (||) e verificação de existência para robustez
-        const nome = nomeInput ? nomeInput.value : "Não informado";
-        const email = emailInput ? emailInput.value : "Não informado";
-        
+        // Tenta buscar o usuário logado no localStorage
+        const usuarioJson = localStorage.getItem('usuarioLogado');
+        let usuarioLogado = null;
+
+        if (usuarioJson) {
+            try {
+                // Converte a string JSON de volta para um objeto
+                usuarioLogado = JSON.parse(usuarioJson);
+            } catch (e) {
+                console.error("Erro ao fazer parse do usuário no localStorage", e);
+            }
+        }
+
+        // Define os valores para exibição
+        const nome = usuarioLogado ? usuarioLogado.nome : "Usuário Desconhecido (Faça Login)";
+        const email = usuarioLogado ? usuarioLogado.email : "N/A";
+
         // Preenche a div de informações
-        if (displayNome) displayNome.textContent = nome;
-        if (displayEmail) displayEmail.textContent = email;
+        displayNome.textContent = nome;
+        displayEmail.textContent = email;
 
         // 3. Alterna a visibilidade do painel (como um "toggle")
-        if (infoPainel) {
-            if (infoPainel.style.display === 'block') {
-                infoPainel.style.display = 'none'; // Esconde
-            } else {
-                infoPainel.style.display = 'block'; // Mostra
-            }
+        const isVisible = infoPainel.style.display === 'block';
+        
+        if (isVisible) {
+            infoPainel.style.display = 'none'; // Esconde
+        } else {
+            infoPainel.style.display = 'block'; // Mostra
         }
     }
 
     // 4. Adiciona o evento de clique ao ícone
-    if (iconeUsuario) {
-        iconeUsuario.addEventListener('click', atualizarEExibirInfo);
-    }
+    iconeUsuario.addEventListener('click', atualizarEExibirInfo);
 });
