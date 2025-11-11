@@ -1,0 +1,132 @@
+/* ======================================= */
+/* 1. BODY (FUNDO E LAYOUT GERAL) */
+/* ======================================= */
+body{
+   /* Imagem Fundo */
+    background-image: url('../imagens/tijoloechao.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    /* Layout Vertical para Navbar e Card */
+    display: flex;
+    flex-direction: column; /* Organiza os itens (navbar e card) verticalmente */
+    min-height: 100vh; /* Garante que o fundo cubra a altura total da tela */
+    margin: 0; /* Remove a margem padrão do body para evitar barras de rolagem indesejadas */
+    padding: 0;
+}
+
+/* ======================================= */
+/* 2. ESTILIZANDO A NAVBAR (MANTENDO NO TOPO) */
+/* ======================================= */
+ul {
+    list-style-type: none;
+    padding: 20px 0; /* Ajuste o padding para 20px em cima/baixo e 0 nas laterais */
+    margin: 10px;
+    overflow: hidden;
+    background-color: #6C7A89;
+    border-radius: 10px;
+    
+    /* Flexbox para distribuir os itens */
+    display: flex;
+    justify-content: space-around; /* Distribui os itens uniformemente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 98%; /* Garante que ocupe quase toda a largura, respeitando a margem */
+    align-self: center; /* Centraliza a navbar no eixo horizontal */
+}
+
+ul li {
+    /* Mantém o display para que os <a> ocupem o espaço corretamente */
+    display: inline-block; 
+    margin: 0; /* Remove as margens fixas */
+}
+
+/*DEFININDO TRANSICAO DE CORES NAVBAR,ALINHANDO,DEFININDO TAMANHO DE FONTE*/
+ul li a {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px 40px; /* Mantido o padding para esticar o botão */
+    text-decoration: none;
+    font-size: 25px;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;          
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/*ESTILIZANDO BOTAO NAVBAR login*/
+.login a:hover{
+    background-color: #FFB81C;
+    color: black;
+    border-radius: 5px;
+}
+
+/*ESTILIZANDO BOTAO NAVBAR CADASTRO*/
+.cadastroo a:hover{ 
+    background-color: #A52A2A;
+    color: black;
+    border-radius: 5px;
+}
+/*ESTILIZANDO BOTAO NAVBAR ESTOQUE*/
+.estoque a:hover{
+    background-color: #003366;
+    color: white;
+    border-radius: 5px;
+}
+
+/* ======================================= */
+/* 3. ESTILIZANDO CARDS (NOVO ALINHAMENTO) */
+/* ======================================= */
+
+/*CARD CINZA ESCURO - Posiciona no Centro da Página, Abaixo da Navbar*/
+.cinza{
+    background-color: #A5ABB0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 80%; /* largura */
+    min-height: 75vh; 
+    
+    /* Centraliza o card na página, dando um respiro da navbar */
+    margin: 20px auto; 
+    border-radius: 5px; 
+    flex-shrink: 0; /* Impede que o card encolha se o conteúdo for muito grande */
+}
+
+/*CARD CINZA CLARO - Alinha Conteúdo Verticalmente*/
+.cinzz{
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column; /* Alinha o texto e a imagem verticalmente */
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    min-height: 50vh; 
+    margin: 0; /* Removendo margem interna */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* ======================================= */
+/* 4. CONTEÚDO (FONTE E IMAGEM) */
+/* ======================================= */
+
+/* FONTE TEXTO */
+.font{
+  font-size: 39px;
+  text-align: center; /* texto no centro */
+  
+  /* Ajusta o espaçamento abaixo do texto para separar da imagem */
+  margin: 0 0 30px 0; 
+  padding: 0 10px;
+}
+
+/* IMAGEM */
+.img{
+   width: 35%; /* tamanho da imagem */
+   height: auto;
+   /* Remove margens fixas desnecessárias, o flexbox faz o alinhamento */
+   margin: 0; 
+}
