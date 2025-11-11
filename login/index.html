@@ -10,8 +10,22 @@
 </head>
 
 <body>
-    <!--NAVBAR-->
-     <ul>
+    <div id="mensagem-erro" style="
+        display: none; 
+        padding: 15px; 
+        text-align: center; 
+        font-weight: bold; 
+        color: white; 
+        margin-bottom: 20px;
+        position: fixed; /* Fixa no topo */
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    ">
+    </div>
+
+    <ul>
     <li class="menu"><a href="http://localhost/prova_almoxerifado/menu/menu.html">Menu</a></li>
     <li class="login"><a href="http://localhost/prova_almoxerifado/login/">Login</a></li>
     <li class="cadastroo"><a href="http://localhost/prova_almoxerifado/cadastro_materiaisMovimento/cadastro_produtos.php">Cadastro de Produto</a></li>
@@ -20,13 +34,9 @@
      <li class="login"><img src="../imagens/people.png" id="icone-usuario"></li>
     </ul>
     
-       <!--CARD GRANDE-->
        <div class="cards">
-       <!--CARD CONTAINER-->
-        <div class="form-container">
-            <!--FORMULARIO LOGIN-->
+       <div class="form-container">
             <form id="formulario-login">
-            <!--DIV PARA O CARD COM INPUT-->
             <div class="loginn">
             <label for="nome-input">Nome:</label>
             <input type="text" name="name" id="nome-input">
@@ -42,7 +52,6 @@
         </form></div>
        </div>
 
-       <!--INFORMAÇÕES DO USUARIO-->
        <div id="info-usuario" class="info-painel"> 
         <p>Nome: <span id="display-nome"></span></p>
         <p>E-mail: <span id="display-email"></span></p>
