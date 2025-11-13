@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/cadastroProdut.css">
     
 </head>
 
@@ -12,9 +13,10 @@
 
     <!--NAV BAR-->
     <ul>
-        <li class menu><a href="http://127.0.0.1:5500/menu/menu.html">Menu</a></li>
-        <li class menu><a href="http://127.0.0.1:5500/login/index.html">Login</a></li>
-        <li class menu><a href="http://127.0.0.1:5500/cadastro_materiais/cadastro.html">Cadastro</a></li>
+        <li class menu><a href="http://localhost/prova_almoxerifado/menu/menu.html">Menu</a></li>
+        <li class menu><a href="http://localhost/prova_almoxerifado/login/">Login</a></li>
+        <li class menu><a href="http://localhost/prova_almoxerifado/cadastro_materiaisMovimento/cadastro_produtos.php">Cadastro de Produto</a></li>
+        <li class menu><a href="http://localhost/prova_almoxerifado/cadastro_materiaisMovimento/cadastro_movimento.php">Cadastro de Movimento</a></li>
         <li class menu><a href="">Estoque</a></li>
     </ul>
 

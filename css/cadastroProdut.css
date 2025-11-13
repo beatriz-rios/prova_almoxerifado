@@ -1,0 +1,140 @@
+/* CORREÇÃO AQUI */
+body{
+    background-color: #D9D9D9;
+    /* Adicionando Flexbox ao body para centralizar o conteúdo */
+    display: flex;
+    flex-direction: column; /* Coloca a navbar e o cards um abaixo do outro */
+    align-items: center; /* Centraliza horizontalmente os elementos filhos do body */
+    min-height: 100vh; /* Garante que o body ocupe a altura total */
+    margin: 0; /* Remove margem padrão */
+}
+
+/*ESTILIZANDO A NAVBAR*/
+ul {
+    list-style-type: none;
+    padding: 20px 0; /* Ajuste o padding para 20px em cima/baixo e 0 nas laterais */
+    margin: 10px;
+    overflow: hidden;
+    background-color: #6C7A89;
+    border-radius: 10px;
+    
+    /* Adicionando Flexbox para distribuir os itens */
+    display: flex;
+    justify-content: space-around; /* Distribui os itens uniformemente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 98%; /* Para ocupar a maior parte da tela */
+}
+
+/*ESTILIZANDO BOTAO NAVBAR MENU*/
+.menu a:hover {
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 5px;
+}
+
+/*ESTILIZANDO BOTAO NAVBAR login*/
+.login a:hover{
+    background-color: #FFB81C;
+    color: black;
+    border-radius: 5px;
+}
+
+/*ESTILIZANDO BOTAO NAVBAR CADASTRO*/
+.cadastroo a:hover{ 
+    background-color: #A52A2A;
+    color: black;
+    border-radius: 5px;
+}
+/*ESTILIZANDO BOTAO NAVBAR ESTOQUE*/
+.estoque a:hover{
+    background-color: #003366;
+    color: white;
+    border-radius: 5px;
+}
+.movimentacao a:hover{
+    background-color:  #A52A2A;
+    color: black;
+    border: 5px;
+}
+
+ul li {
+    /* Mantém o display para que os <a> ocupem o espaço corretamente */
+    display: inline-block; 
+    margin: 0; /* Remove as margens fixas */
+}
+
+
+
+
+/*DEFININDO TRANSICAO DE CORES NAVBAR,ALINHANDO,DEFININDO TAMANHO DE FONTE*/
+ul li a {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;          
+    
+    /* Aumenta o padding horizontal para esticar o botão (elemento <a>) */
+    padding: 10px 40px; /* Aumentei o valor de 20px para 40px */
+    width: 100%; /* Garante que ocupe a largura disponível no seu li */
+    box-sizing: border-box; /* Inclui padding na largura */
+}
+
+
+/* DIV QUADRADO GRANDE (CONTAINER PRINCIPAL) */
+.cards {
+    display: flex; /* Para centralizar o conteúdo do .cadastro */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa a largura total */
+    min-height: 80vh; /* Altura mínima */
+    /* margin-top: 4.8%; REMOVIDO: A centralização do body faz o trabalho */
+    flex-grow: 1; /* Permite ocupar o espaço vertical restante */
+    
+}
+
+/* DIV ONDE ESTÃO OS CAMPOS DO FORMULÁRIO */
+.cadastro {
+    background-color: #fcd378; /* Cor de fundo cinza do quadrado principal */
+    padding: 30px; /* Preenchimento interno */
+    border-radius: 5px;
+    width: 600px; /* Largura fixa para o formulário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: Arial, sans-serif; /* Fonte para o texto */
+    font-size: 20px; /* Tamanho da fonte para os labels/texto */
+    color: black;
+    
+}
+
+/* ESTILIZANDO OS INPUTS DE TEXTO E DATA (exceto o botão) */
+.cadastro input[type="text"],
+.cadastro input[type="date"],
+.cadastro input[type="number"] { /* Adicionado input[type="number"] */
+    width: 100%; /* Ocupa a largura total do container */
+    padding: 10px;
+    margin-top: 2px; /* Espaço entre o label e o input */
+    margin-bottom: 20px; /* Espaço após cada campo */
+    box-sizing: border-box; /* Garante que padding e borda estejam incluídos na largura */
+
+}
+/* Estilizando o botão de submit */
+.cadastro input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cadastro input[type="submit"]:hover {
+    background-color: #00509e;
+}   

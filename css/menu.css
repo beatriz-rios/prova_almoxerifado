@@ -1,19 +1,24 @@
 /* ======================================= */
-/* 1. BODY (FUNDO E LAYOUT GERAL) */
+/* 1. RESET E FUNDO FIXO (CORRIGIDO) */
 /* ======================================= */
-body{
-   /* Imagem Fundo */
+*{ 
+    margin: 0; 
+    padding: 0;
+    /* Propriedades de layout removidas daqui */
+}
+.imagem{
     background-image: url('../imagens/tijoloechao.jpg'); 
+    /* Configurações para Fundo Fixo e Completo */
     background-size: cover; 
-    background-position: center; 
+    background-attachment: fixed; 
     background-repeat: no-repeat;
+    background-position: center;
     
-    /* Layout Vertical para Navbar e Card */
+    /* Layout Vertical para Navbar e Card (Aplicado APENAS ao <body>) */
     display: flex;
     flex-direction: column; /* Organiza os itens (navbar e card) verticalmente */
     min-height: 100vh; /* Garante que o fundo cubra a altura total da tela */
-    margin: 0; /* Remove a margem padrão do body para evitar barras de rolagem indesejadas */
-    padding: 0;
+    width: 100%;
 }
 
 /* ======================================= */
