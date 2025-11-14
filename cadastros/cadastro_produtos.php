@@ -42,7 +42,7 @@
 
     <?php
     $servername = "localhost";
-    $database = "saep_db";
+    $database = "bancox";
     $username = "root";
     $password = "";
 
